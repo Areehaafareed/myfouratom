@@ -22,10 +22,11 @@ import Profile from "./src/Screens/Profile";
 import Payment from "./src/Screens/Payment2";
 import Checkout from "./src/Screens/Checkout";
 import Address from "./src/Screens/Address";
-// import EditProfile from "./src/Screens/EditProfile";
+import EditProfile from "./src/Screens/EditProfile";
 import MyOrders from "./src/Screens/MyOrders";
 import Feedback from "./src/Screens/Feedback";
 import Notifications from "./src/Screens/Notifications";
+import ForgotPassword from "./src/Screens/ForgotPassword";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -139,11 +140,12 @@ function App() {
           <Stack.Screen name="MyCart" component={MyCart} />
           <Stack.Screen name="Address" component={Address} />
           <Stack.Screen name="Checkout" component={Checkout} />
-          {/* <Stack.Screen name="EditProfile" component={EditProfile} /> */}
+          <Stack.Screen name="EditProfile" component={EditProfile} />
           <Stack.Screen name="MyOrders" component={MyOrders} />
           <Stack.Screen name="Payment" component={Payment} />
           <Stack.Screen name="Feedback" component={Feedback} />
           <Stack.Screen name="Notifications" component={Notifications} />
+          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
           <Stack.Screen name="ProgressBar" component={ProgressBar} />
           <Stack.Screen name="OrderPlaced" component={OrderPlaced} />
           <Stack.Screen name="Otp" component={Otp} />

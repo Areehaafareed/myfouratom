@@ -19,6 +19,7 @@ const Search = () => {
         <TextInput
           style={styles.input}
           value={searchText}
+          placeholder="search"
           onChangeText={(text) => setSearchText(text)}
         />
         <Ionicons name="search" size={24} color={grey} />

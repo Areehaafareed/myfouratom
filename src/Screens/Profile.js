@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, Image, View, TouchableOpacity } from "react-native";
 import { AntDesign, Feather, Entypo, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { white } from "../Components/Constant";
 
 export default function Profile() {
   const nav = useNavigation();
@@ -15,8 +16,8 @@ export default function Profile() {
           }}
         />
         <View style={styles.profileText}>
-          <Text style={styles.profileName}>Ariba Siddique</Text>
-          <Text style={styles.profileNo}>+92 072219550</Text>
+          <Text style={styles.profileName}>Areeha Fareed</Text>
+          <Text style={styles.profileNo}>+92 05465790</Text>
         </View>
       </View>
       <View style={styles.menuContainerOutside}>
@@ -28,7 +29,7 @@ export default function Profile() {
               </View>
               <Text style={styles.textLine}>Edit Profile</Text>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => nav.navigate("EditProfile")}>
               <MaterialIcons name="arrow-forward-ios" size={24} color="black" />
             </TouchableOpacity>
           </View>
@@ -50,7 +51,7 @@ export default function Profile() {
               </View>
               <Text style={styles.textLine}>My Orders</Text>
             </View>
-            <TouchableOpacity onPress={() => nav.navigate("MyOrder")}>
+            <TouchableOpacity onPress={() => nav.navigate("MyOrders")}>
               <MaterialIcons name="arrow-forward-ios" size={24} color="black" />
             </TouchableOpacity>
           </View>
@@ -135,6 +136,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     height: "58%",
+    backgroundColor: white,
     justifyContent: "space-between",
   },
   icon: {

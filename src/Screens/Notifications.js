@@ -144,14 +144,14 @@ const Notifications = () => {
           <TouchableOpacity onPress={handleGoBack}>
             <Ionicons name="arrow-back" size={24} color={grey} />
           </TouchableOpacity>
-          <TouchableOpacity>
-            {/* <Ionicons
+          {/* <TouchableOpacity>
+            <Ionicons
               name="notifications-outline"
               style={{ display: "none" }}
               size={24}
               color={grey}
-            /> */}
-          </TouchableOpacity>
+            />
+          </TouchableOpacity> */}
         </View>
         <Text style={styles.orderText}>Notifications</Text>
       </View>
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
   orderText: {
     fontWeight: "bold",
     fontSize: 22,
-    color: grey,
+    color: "black",
     justifyContent: "space-between",
     paddingHorizontal: 110,
   },

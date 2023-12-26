@@ -10,9 +10,13 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { grey } from "../Components/Constant";
 
 const MyOrders = () => {
   const nav = useNavigation();
+  const handleGoBack = () => {
+    nav.goBack();
+  };
   const [itemStatus, setItemStatus] = useState(false);
   const orders = [
     {
@@ -146,11 +150,16 @@ const MyOrders = () => {
       <View style={styles.topHeader}>
         <View style={styles.header}>
           <TouchableOpacity>
-            <Ionicons name="arrow-back" size={24} color="gray" />
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              color={grey}
+              onPress={handleGoBack}
+            />
           </TouchableOpacity>
           <Text style={styles.orderText}>My Orders</Text>
-          <TouchableOpacity onPress={() => nav.navigate("Profile")}>
-            <Ionicons name="notifications-outline" size={24} color="gray" />
+          <TouchableOpacity onPress={() => nav.navigate("Notifications")}>
+            <Ionicons name="notifications-outline" size={24} color={grey} />
           </TouchableOpacity>
         </View>
       </View>
@@ -158,6 +167,7 @@ const MyOrders = () => {
         <FlatList
           data={orders}
           renderItem={renderItem}
+          showsVerticalScrollIndicator={false}
           keyExtractor={(item) => item.id}
           ItemSeparatorComponent={() => (
             <View style={{ height: 3, backgroundColor: "white" }} />
@@ -170,10 +180,14 @@ const MyOrders = () => {
 
 const styles = StyleSheet.create({
   header: {
+    display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "90%",
-    marginTop: 15,
+    alignItems: "center",
+    gap: 20,
+    width: "95%",
+    marginTop: 40,
+    marginBottom: 10,
   },
   color: {
     color: "#ffffff",

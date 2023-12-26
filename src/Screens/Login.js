@@ -1,5 +1,12 @@
 import React, { useState, Component } from "react";
-import { View, Text, TouchableOpacity, Image, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  TextInput,
+  StyleSheet,
+} from "react-native";
 import Btn from "../Components/Btn";
 import { grey, mehroon } from "../Components/Constant";
 import Field from "../Components/Field";
@@ -65,6 +72,7 @@ const Login = (props) => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
+          marginBottom: 50,
         }}
       >
         <TextInput
@@ -93,10 +101,12 @@ const Login = (props) => {
           alignItems: "center",
           width: "78%",
           paddingRight: 16,
-          marginBottom: 100,
+          marginBottom: 80,
         }}
       >
-        <Text style={{ color: mehroon, fontSize: 15 }}>Forgot Password?</Text>
+        <TouchableOpacity onPress={() => nav.navigate("ForgotPassword")}>
+          <Text style={{ color: mehroon, fontSize: 15 }}>Forgot Password?</Text>
+        </TouchableOpacity>
       </View>
 
       <View

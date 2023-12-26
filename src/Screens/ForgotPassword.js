@@ -6,11 +6,12 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  ScrollView,
 } from "react-native";
 
-const MyImageComponent = () => {
+const ForgotPassword = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <View style={styles.img}>
         <Image
           source={{
@@ -29,21 +30,21 @@ const MyImageComponent = () => {
             <Text style={styles.text}>Please Enter your e-mail/username</Text>
           </View>
         </View>
-        <TextInput
-          style={{
-            borderRadius: 100,
-            color: "#6d2c00",
-            paddingHorizontal: 20,
-            marginTop: 20,
-            width: "100%",
-            height: 50,
-            backgroundColor: "rgb(220, 220, 220)",
-            marginVertical: 10,
-          }}
-          placeholder="Please Enter your e-mail/username"
-          placeholderTextColor="rgb(122, 50, 1, 0.5)"
-        ></TextInput>
       </View>
+
+      <TextInput
+        style={{
+          borderRadius: 100,
+          color: "#6d2c00",
+          paddingHorizontal: 20,
+          marginTop: 20,
+          width: "78%",
+          height: 50,
+          backgroundColor: "#DCDCDC",
+          marginVertical: 10,
+        }}
+        placeholder="Please Enter your e-mail/username"
+      ></TextInput>
       <TouchableOpacity
         style={{
           backgroundColor: "#6d2c00",
@@ -59,34 +60,37 @@ const MyImageComponent = () => {
       >
         <Text style={{ color: "white", fontSize: 16 }}>Send Instruction</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-  },
   image: {
-    width: 300,
-    height: 300,
+    width: 250,
+    height: 250,
     resizeMode: "cover",
   },
   input: {
-    height: 40,
     borderColor: "#6d2c00",
     borderWidth: 1,
     borderRadius: 8,
-    paddingLeft: 15,
     fontSize: 16,
     color: "#333333",
-    marginBottom: 10,
+    width: "78%",
+    height: 50,
+    paddingVertical: 5,
+    marginVertical: 10,
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-start",
   },
   heading: {
     color: "#6d2c00",
     fontSize: 35,
-    fontWeight: 600,
+    fontWeight: "bold",
     textAlign: "center",
   },
   text: {
@@ -111,4 +115,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyImageComponent;
+export default ForgotPassword;
