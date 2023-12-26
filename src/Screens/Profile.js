@@ -1,7 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, Image, View, TouchableOpacity } from "react-native";
 import { AntDesign, Feather, Entypo, MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+
 export default function Profile() {
+  const nav = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.imgContainer}>
@@ -23,7 +26,7 @@ export default function Profile() {
               <View style={styles.icon}>
                 <AntDesign name="user" size={24} color="black" />
               </View>
-              <Text style={styles.textLine}>My Account</Text>
+              <Text style={styles.textLine}>Edit Profile</Text>
             </View>
             <TouchableOpacity>
               <MaterialIcons name="arrow-forward-ios" size={24} color="black" />
@@ -47,7 +50,7 @@ export default function Profile() {
               </View>
               <Text style={styles.textLine}>My Orders</Text>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => nav.navigate("MyOrder")}>
               <MaterialIcons name="arrow-forward-ios" size={24} color="black" />
             </TouchableOpacity>
           </View>
@@ -69,7 +72,7 @@ export default function Profile() {
               </View>
               <Text style={styles.textLine}>Help and Feedback</Text>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => nav.navigate("Feedback")}>
               <MaterialIcons name="arrow-forward-ios" size={24} color="black" />
             </TouchableOpacity>
           </View>

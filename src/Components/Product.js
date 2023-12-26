@@ -78,14 +78,14 @@ const Product = () => {
             >
               <Text style={{ fontSize: 12, marginLeft: 7 }}>${item.price}</Text>
               {/* Add StarRating component here */}
-              <StarRating
+              {/* <StarRating
                 disabled={true}
                 maxStars={5}
                 rating={item.rating} // Assuming your product object has a 'rating' property
                 starSize={16}
                 fullStarColor="gold"
                 style={{ marginLeft: 7 }} // Adjust the style as needed
-              />
+              /> */}
             </View>
           </TouchableOpacity>
         )}

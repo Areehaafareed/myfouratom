@@ -10,14 +10,18 @@ import {
 } from "react-native";
 import { grey, lightGrey, mehroon } from "../Components/Constant";
 import { useState } from "react";
+
 import Search from "../Components/Search";
 import RoundBtn from "../Components/RoundBtn";
 import LatestProduct from "../Components/LatestProduct";
 import Product from "../Components/Product";
 import { product } from "../Components/Data";
 import { ScrollView } from "react-native-virtualized-view";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView
       style={{ flex: 1, paddingHorizontal: 20, backgroundColor: "white" }}
@@ -39,7 +43,12 @@ const Home = () => {
           <Search />
         </View>
         {/* bell-icon */}
-        <Ionicons name="ios-notifications" size={24} color={grey} />
+        <Ionicons
+          name="ios-notifications"
+          size={24}
+          color={grey}
+          onPress={() => navigation.navigate("Notifications")}
+        />
       </View>
 
       {/* main */}
@@ -61,9 +70,8 @@ const Home = () => {
       </ScrollView>
     </SafeAreaView>
   );
-  <ScrollView></ScrollView>;
 };
 const style = StyleSheet.create({
-  header: { flexDirection: "row", marginTop: 60 },
+  header: { flexDirection: "row", marginTop: 50 },
 });
 export default Home;

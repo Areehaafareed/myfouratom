@@ -6,30 +6,28 @@ import { grey, lightGrey } from "./Constant";
 
 const Search = () => {
   const [searchText, setSearchText] = useState("");
-  //function for search
+
+  // Function for search
   const handleSearch = () => {
     console.log(searchText);
     setSearchText("");
   };
+
   return (
     <View>
-      <TextInput
-        name="search"
-        size={24}
-        color={grey}
-        placeholder="search"
-        flex={1}
-        value={searchText}
-        onChangeText={(text) => setSearchText(text)}
-      />
-      <TouchableOpacity style={style.searchContainer} onPress={handleSearch}>
-        <Ionicons name="search" size={24} color={grey} style={{}} />
+      <TouchableOpacity style={styles.searchContainer} onPress={handleSearch}>
+        <TextInput
+          style={styles.input}
+          value={searchText}
+          onChangeText={(text) => setSearchText(text)}
+        />
+        <Ionicons name="search" size={24} color={grey} />
       </TouchableOpacity>
     </View>
   );
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   searchContainer: {
     marginTop: 20,
     flexDirection: "row",
@@ -40,5 +38,11 @@ const style = StyleSheet.create({
     paddingHorizontal: 20,
     height: 55,
   },
+  input: {
+    flex: 1,
+    fontSize: 18,
+    color: grey,
+  },
 });
+
 export default Search;

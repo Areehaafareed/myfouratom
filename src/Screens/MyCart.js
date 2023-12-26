@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-// import CheckBox from "react-native-check-box";
 import { useDispatch, useSelector } from "react-redux";
 import { responsiveHeight } from "react-native-responsive-dimensions";
 import { useNavigation } from "@react-navigation/native";
@@ -15,6 +14,8 @@ import {
 } from "../../Redux/CartSlice";
 
 import Home from "./Home";
+import Address from "./Address";
+
 const MyCart = () => {
   const nav = useNavigation();
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ const MyCart = () => {
 
   const handleCheckout = () => {
     if (canCheckout) {
-      nav.navigate("OrderPlaced");
+      nav.navigate("Address");
     } else {
       // Show a message to inform the user to select items
       alert("Please select items before checkout.");
@@ -75,6 +76,33 @@ const MyCart = () => {
     });
     setCheckedItems(Array(storeData.length).fill(false));
   };
+  // checkbox functionality
+  const CustomCheckbox = ({ isChecked, onClick, color }) => (
+    <TouchableOpacity
+      onPress={onClick}
+      style={{
+        width: 20,
+        height: 20,
+        borderRadius: 5,
+        borderWidth: 2,
+        borderColor: color,
+        alignItems: "center",
+        justifyContent: "center",
+        marginRight: 10,
+      }}
+    >
+      {isChecked && (
+        <View
+          style={{
+            width: 12,
+            height: 12,
+            borderRadius: 3,
+            backgroundColor: color,
+          }}
+        />
+      )}
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView
@@ -82,7 +110,6 @@ const MyCart = () => {
         flex: 1,
         paddingHorizontal: 10,
         backgroundColor: white,
-        marginTop: 15,
         gap: 10,
       }}
     >
@@ -92,7 +119,7 @@ const MyCart = () => {
           fontSize: 24,
           fontWeight: "600",
           marginBottom: 10,
-          color: "black",
+          marginTop: 10,
         }}
       >
         My Cart
@@ -122,7 +149,6 @@ const MyCart = () => {
       <FlatList
         showsVerticalScrollIndicator={false}
         data={storeData}
-        style={{}}
         renderItem={({ item, index }) => (
           <View
             style={{
@@ -134,7 +160,12 @@ const MyCart = () => {
               alignItems: "center",
             }}
           >
-            <View style={{ flex: 0.4, marginHorizontal: 10 }}>
+            <View
+              style={{
+                flex: 0.4,
+                marginHorizontal: 10,
+              }}
+            >
               <Image
                 source={item.img}
                 style={{
@@ -167,12 +198,10 @@ const MyCart = () => {
                     marginLeft: 60,
                   }}
                 >
-                  <CheckBox
+                  <CustomCheckbox
                     isChecked={checkedItems[index]}
                     onClick={() => handleCheckBoxClick(index)}
-                    style={(color = checkedItems[index] ? "mehroon" : "grey")}
-                    checkedCheckBoxColor={mehroon}
-                    uncheckedCheckBoxColor={grey}
+                    color={checkedItems[index] ? mehroon : grey}
                   />
                 </View>
               </View>
@@ -221,7 +250,7 @@ const MyCart = () => {
           </View>
         )}
       />
-      <View style={{ gap: 10 }}>
+      <View style={{ marginBottom: 40 }}>
         <View
           style={{
             flexDirection: "row",
@@ -239,6 +268,7 @@ const MyCart = () => {
             justifyContent: "space-between",
             borderBottomColor: "#E3E3E3",
             borderBottomWidth: 2,
+            paddingTop: 10,
           }}
         >
           <Text>Shipping Fee</Text>
@@ -256,32 +286,32 @@ const MyCart = () => {
           <Text>Total</Text>
           <Text>${finalTotal}</Text>
         </View>
-      </View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          marginBottom: 30,
-        }}
-      >
-        <TouchableOpacity
+        <View
           style={{
-            marginTop: 17,
-            height: 45,
-            borderRadius: 20,
+            flexDirection: "row",
             alignItems: "center",
             justifyContent: "center",
-            flexDirection: "row",
-            backgroundColor: mehroon,
-            width: 200,
+            marginBottom: 30,
           }}
-          onPress={handleCheckout}
         >
-          <Text style={{ marginLeft: 12, color: white, fontWeight: "700" }}>
-            Checkout
-          </Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              height: 45,
+              marginTop: 17,
+              borderRadius: 20,
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
+              backgroundColor: mehroon,
+              width: 200,
+            }}
+            onPress={handleCheckout}
+          >
+            <Text style={{ marginLeft: 12, color: white, fontWeight: "700" }}>
+              Checkout
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );

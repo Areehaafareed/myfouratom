@@ -4,9 +4,11 @@ import Btn from "../Components/Btn";
 import { grey, mehroon } from "../Components/Constant";
 import Field from "../Components/Field";
 import { Entypo } from "@expo/vector-icons/";
+import { useNavigation } from "@react-navigation/native";
 
 const Login = (props) => {
   const [password, setPassword] = useState("");
+  const nav = useNavigation();
   const [showPassword, setShowPassword] = useState(true);
 
   const togglePassword = () => {
@@ -84,7 +86,7 @@ const Login = (props) => {
         textColor="white"
         bgColor={mehroon}
         btnLabel="LOGIN"
-        Press={() => alert("Logged In")}
+        Press={() => nav.navigate("Bottom")}
       />
       <View
         style={{

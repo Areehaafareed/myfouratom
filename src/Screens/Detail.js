@@ -226,11 +226,7 @@ const Detail = ({ route }) => {
               <Feather name="plus" color={grey}></Feather>
             </TouchableOpacity>
           </View>
-          <ColorPicker
-          // selectedColor={selectedColor}
-          // onSelectColor={handleColorSelection}
-          // colors={colors}
-          />
+          <ColorPicker />
         </View>
         <View
           style={{
@@ -243,7 +239,7 @@ const Detail = ({ route }) => {
             style={styles.button}
             onPress={() => {
               dispatch(addToCart(productData));
-              nav.navigate("MyCart");
+              // nav.navigate("MyCart");
             }}
           >
             <Feather name="shopping-cart" size={22} color={white} />
