@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FlatList,
   View,
@@ -8,14 +8,15 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { product } from "./Data";
-import { MaterialIcons } from "@expo/vector-icons";
-import { mehroon, lightGrey, WhiteSmoke } from "./Constant";
+import { Ionicons } from "@expo/vector-icons";
+import { mehroon, grey, WhiteSmoke } from "./Constant";
 const width = Dimensions.get("screen").width / 2 - 30;
 // import StarRating from "react-native-star-rating";
 import { useNavigation } from "@react-navigation/native";
 
 const Product = () => {
   const nav = useNavigation();
+  const [isFavorite, setIsFavorite] = useState(false);
   return (
     <View style={{ marginTop: 20 }}>
       <FlatList
@@ -43,14 +44,19 @@ const Product = () => {
               shadowColor: WhiteSmoke,
             }}
           >
-            <View style={{ alignItems: "flex-end" }}>
-              <MaterialIcons
-                name="favorite-border"
-                size={24}
-                color={mehroon}
-                style={{ position: "absolute", top: 10, right: 10, zIndex: 1 }}
-              />
-
+            <View
+              style={{
+                alignItems: "flex-end",
+                backgroundColor: "red",
+              }}
+            >
+              <TouchableOpacity onPress={() => setIsFavorite(!isFavorite)}>
+                {isFavorite ? (
+                  <Ionicons name="md-heart-sharp" size={26} color={mehroon} />
+                ) : (
+                  <Ionicons name="md-heart-outline" size={26} color={grey} />
+                )}
+              </TouchableOpacity>
               <Image
                 source={item.img}
                 style={{
@@ -58,7 +64,7 @@ const Product = () => {
                   width: 172,
                   borderRadius: 10,
                   resizeMode: "contain",
-                  marginLeft: 60,
+                  // marginLeft: 40,
                 }}
               />
             </View>

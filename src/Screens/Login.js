@@ -114,7 +114,7 @@ const Login = (props) => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
-          marginTop: 30,
+          marginTop: 20,
         }}
       >
         <Text>Don't have an account ? </Text>

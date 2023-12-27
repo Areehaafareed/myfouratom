@@ -27,6 +27,7 @@ import MyOrders from "./src/Screens/MyOrders";
 import Feedback from "./src/Screens/Feedback";
 import Notifications from "./src/Screens/Notifications";
 import ForgotPassword from "./src/Screens/ForgotPassword";
+import ChangePassword from "./src/Screens/ChangePassword";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -146,6 +147,7 @@ function App() {
           <Stack.Screen name="Feedback" component={Feedback} />
           <Stack.Screen name="Notifications" component={Notifications} />
           <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+          <Stack.Screen name="ChangePassword" component={ChangePassword} />
           <Stack.Screen name="ProgressBar" component={ProgressBar} />
           <Stack.Screen name="OrderPlaced" component={OrderPlaced} />
           <Stack.Screen name="Otp" component={Otp} />

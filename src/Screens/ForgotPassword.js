@@ -8,10 +8,50 @@ import {
   StyleSheet,
   ScrollView,
 } from "react-native";
+import { white, grey } from "../Components/Constant";
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
+import { Ionicons } from "@expo/vector-icons";
 
 const ForgotPassword = () => {
+  const [email, setEmail] = useState("");
+  const nav = useNavigation();
+
+  const handleSendInstruction = async () => {
+    try {
+      // Simulate sending reset instructions (log a message instead)
+      console.log(`Reset instructions sent to ${email}`);
+
+      // Simulate generating a new password
+      const newPassword = Math.random().toString(36).slice(-8); // Example: generate an 8-character random password
+
+      // Log the new password (you can use it or implement your logic to handle it)
+      console.log(`New password generated for ${email}: ${newPassword}`);
+
+      // Navigate to the ChangePassword screen with the generated password
+      nav.navigate("ChangePassword", { email, newPassword });
+    } catch (error) {
+      console.error("Error handling reset instructions:", error);
+    }
+  };
+  const handleGoBack = () => {
+    nav.goBack();
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
+      <StatusBar backgroundColor="white" />
+      <TouchableOpacity
+        onPress={handleGoBack}
+        style={{
+          position: "absolute",
+          top: 20,
+          left: 20,
+        }}
+      >
+        <Ionicons name="arrow-back" size={27} color={grey} />
+      </TouchableOpacity>
       <View style={styles.img}>
         <Image
           source={{
@@ -37,12 +77,14 @@ const ForgotPassword = () => {
           borderRadius: 100,
           color: "#6d2c00",
           paddingHorizontal: 20,
-          marginTop: 20,
+          marginTop: 40,
           width: "78%",
           height: 50,
           backgroundColor: "#DCDCDC",
           marginVertical: 10,
         }}
+        value={email}
+        onChangeText={(text) => setEmail(text)}
         placeholder="Please Enter your e-mail/username"
       ></TextInput>
       <TouchableOpacity
@@ -50,13 +92,14 @@ const ForgotPassword = () => {
           backgroundColor: "#6d2c00",
           borderRadius: 100,
           alignItems: "center",
-          width: "78%",
+          width: "58%",
           height: 50,
           paddingVertical: 5,
-          marginVertical: 10,
+          marginVertical: 20,
           alignItems: "center",
           justifyContent: "center",
         }}
+        onPress={handleSendInstruction}
       >
         <Text style={{ color: "white", fontSize: 16 }}>Send Instruction</Text>
       </TouchableOpacity>
@@ -86,6 +129,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "flex-start",
+    backgroundColor: white,
+    marginTop: 20,
   },
   heading: {
     color: "#6d2c00",
@@ -106,6 +151,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: 100,
+    marginTop: 40,
   },
   textBelowForget: {
     display: "flex",
