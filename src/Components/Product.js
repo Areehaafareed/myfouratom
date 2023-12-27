@@ -16,7 +16,16 @@ import { useNavigation } from "@react-navigation/native";
 
 const Product = () => {
   const nav = useNavigation();
-  const [isFavorite, setIsFavorite] = useState(false);
+
+  const [favoriteStatus, setFavoriteStatus] = useState(
+    Array(product.length).fill(false)
+  );
+
+  const toggleFavorite = (index) => {
+    const updatedStatus = [...favoriteStatus];
+    updatedStatus[index] = !updatedStatus[index];
+    setFavoriteStatus(updatedStatus);
+  };
   return (
     <View style={{ marginTop: 20 }}>
       <FlatList
@@ -44,29 +53,34 @@ const Product = () => {
               shadowColor: WhiteSmoke,
             }}
           >
+            <Image
+              source={item.img}
+              style={{
+                height: 200,
+                width: 172,
+                borderRadius: 10,
+                resizeMode: "contain",
+                // marginLeft: 40,
+              }}
+            />
             <View
               style={{
                 alignItems: "flex-end",
                 backgroundColor: "red",
+                position: "absolute",
+                top: 10,
+                right: 10,
+                alignItems: "flex-end",
+                backgroundColor: "transparent",
               }}
             >
-              <TouchableOpacity onPress={() => setIsFavorite(!isFavorite)}>
-                {isFavorite ? (
+              <TouchableOpacity onPress={() => toggleFavorite(index)}>
+                {favoriteStatus[index] ? (
                   <Ionicons name="md-heart-sharp" size={26} color={mehroon} />
                 ) : (
                   <Ionicons name="md-heart-outline" size={26} color={grey} />
                 )}
               </TouchableOpacity>
-              <Image
-                source={item.img}
-                style={{
-                  height: 200,
-                  width: 172,
-                  borderRadius: 10,
-                  resizeMode: "contain",
-                  // marginLeft: 40,
-                }}
-              />
             </View>
 
             <Text
