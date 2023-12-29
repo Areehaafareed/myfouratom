@@ -10,7 +10,7 @@ const Splash = () => {
   useEffect(() => {
     setTimeout(() => {
       nav.navigate("Login");
-    }, 3000);
+    }, 30000);
   }, []);
   return (
     // <ImageBackground

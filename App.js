@@ -28,6 +28,7 @@ import Feedback from "./src/Screens/Feedback";
 import Notifications from "./src/Screens/Notifications";
 import ForgotPassword from "./src/Screens/ForgotPassword";
 import ChangePassword from "./src/Screens/ChangePassword";
+import SearchResult from "./src/Screens/SearchResult";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -124,9 +125,9 @@ function App() {
           <Stack.Screen
             name="Splash"
             component={Splash}
-            options={{
-              headerShown: false,
-            }}
+            // options={{
+            //   headerShown: false,
+            // }}
           />
           <Stack.Screen
             name="Bottom"
@@ -148,6 +149,7 @@ function App() {
           <Stack.Screen name="Notifications" component={Notifications} />
           <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
           <Stack.Screen name="ChangePassword" component={ChangePassword} />
+          <Stack.Screen name="SearchResult" component={SearchResult} />
           <Stack.Screen name="ProgressBar" component={ProgressBar} />
           <Stack.Screen name="OrderPlaced" component={OrderPlaced} />
           <Stack.Screen name="Otp" component={Otp} />
