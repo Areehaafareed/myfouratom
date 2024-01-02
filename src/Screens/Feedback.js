@@ -16,7 +16,7 @@ const Feedback = () => {
     nav.goBack();
   };
   return (
-    <ScrollView style={styles.osama}>
+    <ScrollView style={styles.main}>
       <View style={styles.Topheader}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.icons} onPress={handleGoBack}>
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 20,
     width: "95%",
-    marginTop: 6,
+    marginTop: 15,
     marginBottom: 4,
   },
   Topheader: {

@@ -18,6 +18,7 @@ import Product from "../Components/Product";
 import { product } from "../Components/Data";
 import { ScrollView } from "react-native-virtualized-view";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 const Home = () => {
   const navigation = useNavigation();
@@ -26,6 +27,7 @@ const Home = () => {
     <SafeAreaView
       style={{ flex: 1, paddingHorizontal: 20, backgroundColor: "white" }}
     >
+      <StatusBar style="white" />
       {/* heading */}
       <View style={style.header}>
         <View>

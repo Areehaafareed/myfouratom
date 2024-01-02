@@ -9,6 +9,7 @@ import { responsiveHeight } from "react-native-responsive-dimensions";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 const SearchResult = ({ route }) => {
   const nav = useNavigation();
   const handleGoBack = () => {
@@ -23,7 +24,8 @@ const SearchResult = ({ route }) => {
   );
 
   return (
-    <SafeAreaView style={{}}>
+    <SafeAreaView style={{ paddingTop: 20, flex: 1, paddingHorizontal: 10 }}>
+      <StatusBar style="white" />
       <TouchableOpacity onPress={handleGoBack}>
         <Ionicons name="arrow-back" size={24} color={grey} />
       </TouchableOpacity>
@@ -68,7 +70,8 @@ const SearchResult = ({ route }) => {
                 style={{
                   flexDirection: "row",
                   alignItems: "flex-start",
-                  marginTop: 7,
+                  marginTop: 15,
+                  marginVertical: 5,
                   justifyContent: "space-between",
                 }}
               >
@@ -76,8 +79,6 @@ const SearchResult = ({ route }) => {
                   {item.name}
                 </Text>
               </View>
-              <Text>Size: XL</Text>
-              <Text>Color: White</Text>
 
               <Text style={{ fontSize: 16 }}>${item.price}</Text>
             </View>

@@ -41,13 +41,13 @@ const RoundBtn = () => {
                 <View
                   style={{
                     height: 60,
-                    width: 55,
-                    borderRadius: 24,
+                    width: 60,
+                    borderRadius: 30,
                     backgroundColor: "#DCDCDC",
                     justifyContent: "center",
-                    paddingLeft: 7,
-                    marginLeft: -1,
+                    marginLeft: -5,
                     marginBottom: 10,
+                    alignItems: "center",
                   }}
                 >
                   <Image
@@ -55,6 +55,7 @@ const RoundBtn = () => {
                       width: 40,
                       height: 40,
                       backgroundColor: "#DCDCDC",
+                      justifyContent: "center",
                     }}
                     source={cat.image}
                   />

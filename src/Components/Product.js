@@ -8,10 +8,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { product } from "./Data";
-import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { mehroon, grey, WhiteSmoke } from "./Constant";
 const width = Dimensions.get("screen").width / 2 - 30;
-// import StarRating from "react-native-star-rating";
+
 import { useNavigation } from "@react-navigation/native";
 
 const Product = () => {
@@ -25,6 +25,35 @@ const Product = () => {
     const updatedStatus = [...favoriteStatus];
     updatedStatus[index] = !updatedStatus[index];
     setFavoriteStatus(updatedStatus);
+  };
+
+  const renderStarRating = (rating) => {
+    const filledStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+
+    const stars = Array(5).fill("star-o");
+
+    for (let i = 0; i < filledStars; i++) {
+      stars[i] = "star";
+    }
+
+    if (hasHalfStar) {
+      stars[filledStars] = "star-half-empty";
+    }
+
+    return (
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        {stars.map((star, index) => (
+          <FontAwesome
+            key={index}
+            name={star}
+            size={16}
+            color={mehroon}
+            style={{ margin: 1 }}
+          />
+        ))}
+      </View>
+    );
   };
   return (
     <View style={{ marginTop: 20 }}>
@@ -94,18 +123,15 @@ const Product = () => {
               {item.name}
             </Text>
             <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                paddingRight: 10,
+              }}
             >
               <Text style={{ fontSize: 12, marginLeft: 7 }}>${item.price}</Text>
-              {/* Add StarRating component here */}
-              {/* <StarRating
-                disabled={true}
-                maxStars={5}
-                rating={item.rating} // Assuming your product object has a 'rating' property
-                starSize={16}
-                fullStarColor="gold"
-                style={{ marginLeft: 7 }} // Adjust the style as needed
-              /> */}
+              {/* Render star rating */}
+              {renderStarRating(item.rating)}
             </View>
           </TouchableOpacity>
         )}

@@ -183,7 +183,7 @@ const Detail = ({ route }) => {
               height: 50,
               width: 134,
               flexDirection: "row",
-              borderWidth: 2,
+              borderWidth: 1,
               borderColor: grey,
               justifyContent: "space-between",
               alignItems: "center",

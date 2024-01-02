@@ -10,29 +10,29 @@ import { Ionicons } from "@expo/vector-icons";
 import ProgressBar from "./ProgressBar";
 import { useNavigation } from "@react-navigation/native";
 import OrderPlaced from "./OrderPlaced";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { grey, white } from "../Components/Constant";
 const Checkout = () => {
   const nav = useNavigation();
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.Topheader}>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.icons}>
-            <Ionicons name="arrow-back" size={24} color="gray" />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Ionicons name="notifications-outline" size={24} color="gray" />
+          <TouchableOpacity onPress={() => nav.navigate("Notifications")}>
+            <Ionicons name="notifications-outline" size={24} color={grey} />
           </TouchableOpacity>
         </View>
+        <Text style={styles.address}>Check Out</Text>
+        <ProgressBar
+          a1={true}
+          a2={true}
+          a3={true}
+          number1={1}
+          number2={2}
+          number3={3}
+        />
       </View>
-      <Text style={styles.address}>Check Out</Text>
-      <ProgressBar
-        a1={true}
-        a2={true}
-        a3={true}
-        number1={1}
-        number2={2}
-        number3={3}
-      />
+
       <View style={styles.BtnText}>
         <View>
           <Text style={styles.text}>
@@ -55,17 +55,8 @@ const Checkout = () => {
         >
           <Text style={styles.btn}>Previous</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          disabled
-          style={styles.button}
-          onPress={() => {
-            console.log(info);
-          }}
-        >
-          <Text style={styles.btn}>Next</Text>
-        </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -74,7 +65,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    position: "relative",
+    backgroundColor: white,
   },
   BtnText: {
     flex: 1,
@@ -106,20 +97,20 @@ const styles = StyleSheet.create({
   header: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     width: "90%",
-    marginTop: 15,
+    marginTop: 10,
   },
   Topheader: {
     display: "flex",
     alignItems: "center",
     width: "100%",
     position: "absolute",
-    top: 10,
+    top: 40,
   },
   address: {
     position: "absolute",
-    top: "3%",
+    top: 6,
     fontSize: 22,
     fontWeight: "bold",
   },

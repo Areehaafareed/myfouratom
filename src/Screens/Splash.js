@@ -10,7 +10,7 @@ const Splash = () => {
   useEffect(() => {
     setTimeout(() => {
       nav.navigate("Login");
-    }, 30000);
+    }, 5000);
   }, []);
   return (
     // <ImageBackground
@@ -32,7 +32,7 @@ const Splash = () => {
         volume={1.0}
         isMuted={false}
         shouldPlay
-        isLooping
+        // isLooping
         style={{ width: 300, height: 300, borderRadius: 20 }}
       />
     </View>

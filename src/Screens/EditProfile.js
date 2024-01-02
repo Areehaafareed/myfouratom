@@ -23,9 +23,9 @@ const EditProfile = () => {
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpFreAtrOzdfbsrEHLCtHyBDY4x80z6RBeVA&usqp=CAU"
   );
   const dummyData = {
-    firstName: "Mohammad",
-    lastName: "Osama",
-    email: "mo354598@gmail.com",
+    firstName: "Areeha",
+    lastName: "Fareed",
+    email: "areehaf23@gmail.com",
     country: "Pakistan",
     number: "03072219550",
     password: "123456789",

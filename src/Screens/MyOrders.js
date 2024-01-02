@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#6a6a6a",
     width: 100,
     padding: 2,
-    borderRadius: 5,
+    borderRadius: 100,
     marginTop: 5,
     alignItems: "center",
   },
