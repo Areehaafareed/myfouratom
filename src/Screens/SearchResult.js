@@ -22,8 +22,6 @@ const SearchResult = ({ route }) => {
   const filteredProducts = product.filter((item) =>
     item.name.toLowerCase().includes(searchText.toLowerCase())
   );
-
-  // start
   return (
     <SafeAreaView style={{ paddingTop: 20, flex: 1, paddingHorizontal: 10 }}>
       <StatusBar style="white" />
