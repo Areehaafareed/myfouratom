@@ -62,7 +62,7 @@ export default function Profile() {
               </View>
               <Text style={styles.textLine}>My Gallery</Text>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => nav.navigate("Gallery")}>
               <MaterialIcons name="arrow-forward-ios" size={24} color="black" />
             </TouchableOpacity>
           </View>

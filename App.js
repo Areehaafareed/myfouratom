@@ -29,6 +29,9 @@ import Notifications from "./src/Screens/Notifications";
 import ForgotPassword from "./src/Screens/ForgotPassword";
 import ChangePassword from "./src/Screens/ChangePassword";
 import SearchResult from "./src/Screens/SearchResult";
+import FACamera from "./src/Screens/Camera";
+import Gallery from "./src/Screens/Gallery";
+import { GalleryProvider } from "./src/Components/GalleryContext";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -67,22 +70,20 @@ function App() {
             },
           }}
         />
-
         <Tab.Screen
           name="Favourite"
           component={Favourite}
           options={{
-            tabBarIcon: ({ focused }) => {
-              return (
-                <Ionicons
-                  name={focused ? "heart" : "heart-outline"}
-                  size={25}
-                  color={grey}
-                />
-              );
-            },
+            tabBarIcon: ({ focused }) => (
+              <Ionicons
+                name={focused ? "heart" : "heart-outline"}
+                size={25}
+                color={grey}
+              />
+            ),
           }}
         />
+
         <Tab.Screen
           name="Cart"
           component={MyCart}
@@ -98,7 +99,6 @@ function App() {
             },
           }}
         />
-
         <Tab.Screen
           name="Profile"
           component={Profile}
@@ -119,43 +119,48 @@ function App() {
   }
 
   return (
-    <Provider store={Store}>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen
-            name="Splash"
-            component={Splash}
-            // options={{
-            //   headerShown: false,
-            // }}
-          />
-          <Stack.Screen
-            name="Bottom"
-            component={Bottom}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen name="SignUp" component={SignUp} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Detail" component={Detail} />
-          <Stack.Screen name="MyCart" component={MyCart} />
-          <Stack.Screen name="Address" component={Address} />
-          <Stack.Screen name="Checkout" component={Checkout} />
-          <Stack.Screen name="EditProfile" component={EditProfile} />
-          <Stack.Screen name="MyOrders" component={MyOrders} />
-          <Stack.Screen name="Payment" component={Payment} />
-          <Stack.Screen name="Feedback" component={Feedback} />
-          <Stack.Screen name="Notifications" component={Notifications} />
-          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-          <Stack.Screen name="ChangePassword" component={ChangePassword} />
-          <Stack.Screen name="SearchResult" component={SearchResult} />
-          <Stack.Screen name="ProgressBar" component={ProgressBar} />
-          <Stack.Screen name="OrderPlaced" component={OrderPlaced} />
-          <Stack.Screen name="Otp" component={Otp} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
+    <GalleryProvider>
+      <Provider store={Store}>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen
+              name="Splash"
+              component={Splash}
+              // options={{
+              //   headerShown: false,
+              // }}
+            />
+            <Stack.Screen
+              name="Bottom"
+              component={Bottom}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen name="SignUp" component={SignUp} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Detail" component={Detail} />
+            <Stack.Screen name="MyCart" component={MyCart} />
+            <Stack.Screen name="Address" component={Address} />
+            <Stack.Screen name="Checkout" component={Checkout} />
+            <Stack.Screen name="EditProfile" component={EditProfile} />
+            <Stack.Screen name="MyOrders" component={MyOrders} />
+            <Stack.Screen name="Payment" component={Payment} />
+            <Stack.Screen name="Feedback" component={Feedback} />
+            <Stack.Screen name="Notifications" component={Notifications} />
+            <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+            <Stack.Screen name="ChangePassword" component={ChangePassword} />
+            <Stack.Screen name="SearchResult" component={SearchResult} />
+            <Stack.Screen name="ProgressBar" component={ProgressBar} />
+            <Stack.Screen name="OrderPlaced" component={OrderPlaced} />
+            <Stack.Screen name="Favourite" component={Favourite} />
+            <Stack.Screen name="Otp" component={Otp} />
+            <Stack.Screen name="Camera" component={FACamera} />
+            <Stack.Screen name="Gallery" component={Gallery} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
+    </GalleryProvider>
   );
 }
 

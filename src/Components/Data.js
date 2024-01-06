@@ -5,6 +5,7 @@ export const product = [
     price: 50.67,
     rating: 4,
     img: require("../../assets/black-outfit.jpeg"),
+    isFavorite: false,
   },
   {
     _id: 2,
@@ -12,6 +13,7 @@ export const product = [
     price: 69.77,
     rating: 5,
     img: require("../../assets/brown-jacket.jpeg"),
+    isFavorite: false,
   },
   {
     _id: 3,
@@ -19,6 +21,7 @@ export const product = [
     price: 59.6,
     rating: 4.5,
     img: require("../../assets/white-trouser.jpeg"),
+    isFavorite: false,
   },
 
   {
@@ -27,6 +30,7 @@ export const product = [
     price: 70.0,
     rating: 2.5,
     img: require("../../assets/muroon-shirt.jpeg"),
+    isFavorite: false,
   },
   {
     _id: 5,
@@ -34,6 +38,7 @@ export const product = [
     price: 45.89,
     rating: 3.5,
     img: require("../../assets/grey-jacket.jpeg"),
+    isFavorite: false,
   },
   {
     _id: 6,
@@ -41,6 +46,7 @@ export const product = [
     price: 67.99,
     rating: 3.5,
     img: require("../../assets/white-outfit.jpeg"),
+    isFavorite: false,
   },
 
   {
@@ -49,5 +55,6 @@ export const product = [
     price: 56.87,
     rating: 4,
     img: require("../../assets/green-shirt.jpeg"),
+    isFavorite: false,
   },
 ];

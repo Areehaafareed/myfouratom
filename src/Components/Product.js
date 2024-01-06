@@ -7,25 +7,32 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-import { product } from "./Data";
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import { product as initialProduct } from "./Data";
+import { FontAwesome, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { mehroon, grey, WhiteSmoke } from "./Constant";
 const width = Dimensions.get("screen").width / 2 - 30;
-
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../Redux/actions";
 
-const Product = () => {
+const Product = ({ data }) => {
   const nav = useNavigation();
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites);
 
-  const [favoriteStatus, setFavoriteStatus] = useState(
-    Array(product.length).fill(false)
-  );
-
-  const toggleFavorite = (index) => {
-    const updatedStatus = [...favoriteStatus];
-    updatedStatus[index] = !updatedStatus[index];
-    setFavoriteStatus(updatedStatus);
+  const handleFavoritePress = (productId) => {
+    dispatch(toggleFavorite(productId));
   };
+
+  // const [favoriteStatus, setFavoriteStatus] = useState(
+  //   Array(product.length).fill(false)
+  // );
+
+  // const toggleFavorite = (index) => {
+  //   const updatedStatus = [...favoriteStatus];
+  //   updatedStatus[index] = !updatedStatus[index];
+  //   setFavoriteStatus(updatedStatus);
+  // };
 
   const renderStarRating = (rating) => {
     const filledStars = Math.floor(rating);
@@ -65,7 +72,7 @@ const Product = () => {
           paddingBottom: 50,
           marginTop: 10,
         }}
-        data={product}
+        data={data}
         renderItem={({ item, index }) => (
           <TouchableOpacity
             onPress={() => {
@@ -103,12 +110,34 @@ const Product = () => {
                 backgroundColor: "transparent",
               }}
             >
-              <TouchableOpacity onPress={() => toggleFavorite(index)}>
+              {/* <TouchableOpacity onPress={() => toggleFavorite(index)}>
                 {favoriteStatus[index] ? (
                   <Ionicons name="md-heart-sharp" size={26} color={mehroon} />
                 ) : (
                   <Ionicons name="md-heart-outline" size={26} color={grey} />
                 )}
+              </TouchableOpacity> */}
+              <TouchableOpacity
+                onPress={(e) => {
+                  e.stopPropagation(); // Prevent triggering the parent TouchableOpacity onPress
+                  handleFavoritePress(item._id);
+                }}
+                style={{
+                  position: "absolute",
+                  top: 10,
+                  right: 10,
+                  zIndex: 1,
+                }}
+              >
+                <MaterialIcons
+                  name={
+                    favorites.includes(item._id)
+                      ? "favorite"
+                      : "favorite-border"
+                  }
+                  size={24}
+                  color={mehroon}
+                />
               </TouchableOpacity>
             </View>
 

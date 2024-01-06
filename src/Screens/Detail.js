@@ -16,6 +16,7 @@ import ColorPicker from "../Components/ColorPicker";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/CartSlice";
 import StarRate from "../Components/StarRate";
+import FACamera from "./Camera";
 
 const Detail = ({ route }) => {
   const productData = route.params.main;
@@ -248,6 +249,9 @@ const Detail = ({ route }) => {
           <TouchableOpacity>
             <Feather
               name="camera"
+              onPress={() => {
+                nav.navigate("Camera");
+              }}
               size={36}
               color={mehroon}
               style={{ marginTop: 17 }}
