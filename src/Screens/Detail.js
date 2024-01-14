@@ -13,14 +13,23 @@ import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
 import Home from "./Home";
 import ColorPicker from "../Components/ColorPicker";
-import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/CartSlice";
 import StarRate from "../Components/StarRate";
 import FACamera from "./Camera";
 
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../Redux/actions";
+
 const Detail = ({ route }) => {
   const productData = route.params.main;
   const { _id, name, price, rating, img } = productData;
+
+  const favorites = useSelector((state) => state.favorites);
+
+  const handleFavoritePress = () => {
+    dispatch(toggleFavorite(productData._id));
+    setIsFavorite(!isFavorite);
+  };
 
   const nav = useNavigation();
   const [selectedSize, setSelectedSize] = useState(null);
@@ -78,7 +87,7 @@ const Detail = ({ route }) => {
           size={26}
           color={grey}
         />
-        <TouchableOpacity onPress={() => setIsFavorite(!isFavorite)}>
+        <TouchableOpacity onPress={handleFavoritePress}>
           {isFavorite ? (
             <Ionicons name="md-heart-sharp" size={26} color={mehroon} />
           ) : (

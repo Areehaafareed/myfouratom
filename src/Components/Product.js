@@ -24,16 +24,6 @@ const Product = ({ data }) => {
     dispatch(toggleFavorite(productId));
   };
 
-  // const [favoriteStatus, setFavoriteStatus] = useState(
-  //   Array(product.length).fill(false)
-  // );
-
-  // const toggleFavorite = (index) => {
-  //   const updatedStatus = [...favoriteStatus];
-  //   updatedStatus[index] = !updatedStatus[index];
-  //   setFavoriteStatus(updatedStatus);
-  // };
-
   const renderStarRating = (rating) => {
     const filledStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
@@ -110,13 +100,6 @@ const Product = ({ data }) => {
                 backgroundColor: "transparent",
               }}
             >
-              {/* <TouchableOpacity onPress={() => toggleFavorite(index)}>
-                {favoriteStatus[index] ? (
-                  <Ionicons name="md-heart-sharp" size={26} color={mehroon} />
-                ) : (
-                  <Ionicons name="md-heart-outline" size={26} color={grey} />
-                )}
-              </TouchableOpacity> */}
               <TouchableOpacity
                 onPress={(e) => {
                   e.stopPropagation(); // Prevent triggering the parent TouchableOpacity onPress

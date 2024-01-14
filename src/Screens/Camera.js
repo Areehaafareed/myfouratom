@@ -6,7 +6,6 @@ import CamButton from "../Components/CamButton";
 import { useNavigation } from "@react-navigation/native";
 import { useGallery } from "../Components/GalleryContext";
 
-// camera page
 export default function FACamera() {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [image, setImage] = useState(null);
