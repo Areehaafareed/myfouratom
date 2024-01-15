@@ -27,4 +27,3 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 });
- // this is camera button
