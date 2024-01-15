@@ -1,4 +1,3 @@
-// MyCart.js
 import React, { useState, useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -23,7 +22,7 @@ const MyCart = () => {
 
   // Maintain an array to track the checked state for each item
   const [checkedItems, setCheckedItems] = useState(
-    Array(storeData.length).fill(false)
+    Array(storeData?.length || 0).fill(false)
   );
   // State to hold the total amount, shipping fee, and final total
   const [totalAmount, setTotalAmount] = useState(0);
@@ -32,7 +31,9 @@ const MyCart = () => {
 
   // Calculate total amount whenever storeData or checkedItems change
   useEffect(() => {
-    calculateTotalAmount();
+    if (storeData) {
+      calculateTotalAmount();
+    }
   }, [storeData, checkedItems]);
 
   const calculateTotalAmount = () => {
@@ -59,6 +60,7 @@ const MyCart = () => {
       alert("Please select items before checkout.");
     }
   };
+
   const handleQuantityChange = (item, operation) => {
     if (operation === "increment") {
       dispatch(incrementQuantity(item));
@@ -76,6 +78,7 @@ const MyCart = () => {
     });
     setCheckedItems(Array(storeData.length).fill(false));
   };
+
   // checkbox functionality
   const CustomCheckbox = ({ isChecked, onClick, color }) => (
     <TouchableOpacity
@@ -103,6 +106,15 @@ const MyCart = () => {
       )}
     </TouchableOpacity>
   );
+
+  if (!storeData) {
+    // Render a loading state or any other fallback UI
+    return (
+      <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>Loading...</Text>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView

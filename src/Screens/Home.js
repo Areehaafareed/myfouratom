@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -7,29 +7,37 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
+  ScrollView,
 } from "react-native";
-import { grey, lightGrey, mehroon } from "../Components/Constant";
-import { useState } from "react";
-
+import { grey, mehroon } from "../Components/Constant";
+import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 import Search from "../Components/Search";
 import RoundBtn from "../Components/RoundBtn";
 import LatestProduct from "../Components/LatestProduct";
 import Product from "../Components/Product";
-import { product } from "../Components/Data";
-import { ScrollView } from "react-native-virtualized-view";
-import { useNavigation } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
 
 const Home = () => {
   const navigation = useNavigation();
+  const [apiData, setApiData] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from your API endpoint
+    fetch("http://localhost:3000/api/products")
+      .then((response) => response.json())
+      .then((data) => setApiData(data))
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   return (
     <SafeAreaView
       style={{ flex: 1, paddingHorizontal: 20, backgroundColor: "white" }}
     >
-      <StatusBar style="white" />
+      <StatusBar style="dark" />
       {/* heading */}
-      <View style={style.header}>
+      <View style={styles.header}>
         <View>
           <Text
             style={{
@@ -65,15 +73,18 @@ const Home = () => {
         </Text>
 
         {/* Categories */}
-
         <RoundBtn />
         <LatestProduct title="Latest Product" />
-        <Product data={product} />
+        <View>
+          <Product data={apiData} />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
-const style = StyleSheet.create({
+
+const styles = StyleSheet.create({
   header: { flexDirection: "row", marginTop: 50 },
 });
+
 export default Home;

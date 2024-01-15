@@ -1,10 +1,61 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import Btn from "../Components/Btn";
-import { grey, mehroon } from "../Components/Constant";
+import { mehroon } from "../Components/Constant";
 import Field from "../Components/Field";
 
 const SignUp = (props) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSignUp = async () => {
+    try {
+      // Input validation
+      if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        alert("Please fill in all fields");
+        return;
+      }
+
+      // Check if password and confirm password match
+      if (password !== confirmPassword) {
+        alert("Password and Confirm Password must match");
+        return;
+      }
+
+      setLoading(true);
+
+      // Make a POST request to your backend
+      const response = await fetch('http://localhost:3000/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ firstName, lastName, email, password }),
+      });
+
+      if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(`Failed to register. Server response: ${errorMessage}`);
+      }
+
+      const result = await response.json();
+      // Display a success message or navigate to a confirmation screen
+      alert("Account Created. Check your email for verification.");
+      props.navigation.navigate("Login");
+    } catch (error) {
+      console.error('Error:', error); // Log the full error object
+      console.error('Error:', error.message);
+      // Display an error message to the user
+      alert("Failed to register. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <View style={{ alignItems: "center", width: 400 }}>
       <Text
@@ -15,7 +66,7 @@ const SignUp = (props) => {
           marginTop: 70,
         }}
       >
-        SignUp
+        Sign Up
       </Text>
       <Text
         style={{
@@ -38,12 +89,34 @@ const SignUp = (props) => {
           alignItems: "center",
         }}
       >
-        <Field placeholder="First Name" />
-        <Field placeholder="Last Name" />
-        <Field placeholder="Email/Username" keyboardType={"email-address"} />
-        {/* <Field placeholder="Contact Number" keyboardType={"number"} /> */}
-        <Field placeholder="Password" secureTextEntry={true} />
-        <Field placeholder="Confirm Password" secureTextEntry={true} />
+        <Field
+          placeholder="First Name"
+          value={firstName}
+          onChangeText={(text) => setFirstName(text)}
+        />
+        <Field
+          placeholder="Last Name"
+          value={lastName}
+          onChangeText={(text) => setLastName(text)}
+        />
+        <Field
+          placeholder="Email"
+          keyboardType={"email-address"}
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
+        <Field
+          placeholder="Password"
+          secureTextEntry={true}
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+        />
+        <Field
+          placeholder="Confirm Password"
+          secureTextEntry={true}
+          value={confirmPassword}
+          onChangeText={(text) => setConfirmPassword(text)}
+        />
         <View
           style={{
             display: "flex",
@@ -54,7 +127,7 @@ const SignUp = (props) => {
           }}
         >
           <Text style={{ color: "grey", fontSize: 13, marginTop: 20 }}>
-            By Signing In, you agree to our{" "}
+            By Signing Up, you agree to our{" "}
           </Text>
           <Text
             style={{
@@ -87,10 +160,9 @@ const SignUp = (props) => {
         <Btn
           textColor="white"
           bgColor={mehroon}
-          btnLabel="SignUp"
+          btnLabel="Sign Up"
           Press={() => {
-            alert("Account Created");
-            props.navigation.navigate("Login");
+            handleSignUp();
           }}
         />
         <View
@@ -100,7 +172,7 @@ const SignUp = (props) => {
             justifyContent: "center",
           }}
         >
-          <Text>Already have an account ? </Text>
+          <Text>Already have an account? </Text>
           <TouchableOpacity onPress={() => props.navigation.navigate("Login")}>
             <Text style={{ color: mehroon, fontWeight: "bold" }}>Login</Text>
           </TouchableOpacity>

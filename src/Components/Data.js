@@ -1,7 +1,7 @@
 export const product = [
   {
     _id: 1,
-    name: "Workout Outfit",
+    name: "Workout OUTFIT",
     price: 50.67,
     rating: 4,
     img: require("../../assets/black-outfit.jpeg"),
@@ -23,7 +23,6 @@ export const product = [
     img: require("../../assets/white-trouser.jpeg"),
     isFavorite: false,
   },
-
   {
     _id: 4,
     name: "Mehroon T-shirt",

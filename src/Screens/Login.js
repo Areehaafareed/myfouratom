@@ -117,9 +117,9 @@ const Login = (props) => {
           marginTop: 20,
         }}
       >
-        <Text>Don't have an account ? </Text>
+        <Text>Don't have an account? </Text>
         <TouchableOpacity onPress={() => props.navigation.navigate("SignUp")}>
-          <Text style={{ color: mehroon, fontWeight: "bold" }}>SignUp</Text>
+          <Text style={{ color: mehroon, fontWeight: "bold" }}>Sign Up</Text>
         </TouchableOpacity>
       </View>
     </View>
