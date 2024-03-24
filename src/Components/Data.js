@@ -55,5 +55,32 @@ export const product = [
     rating: 4,
     img: require("../../assets/green-shirt.jpeg"),
     isFavorite: false,
+<<<<<<< HEAD
+  },
+  {
+    _id: 8,
+    name: "Unisex Tracksuit",
+    price: 80.8,
+    rating: 4,
+    img: require("../../assets/track.png"),
+    isFavorite: false,
+  },
+  {
+    _id: 9,
+    name: "Adidas Track Top",
+    price: 50.0,
+    rating: 4,
+    img: require("../../assets/adidastracksuit.png"),
+    isFavorite: false,
+  },
+  {
+    _id: 10,
+    name: "Sweat Shirt",
+    price: 30.87,
+    rating: 4,
+    img: require("../../assets/shirt1.png"),
+    isFavorite: false,
+=======
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
   },
 ];

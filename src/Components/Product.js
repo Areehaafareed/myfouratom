@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import {
   FlatList,
@@ -15,6 +16,20 @@ import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "../../Redux/actions";
 
+=======
+import React from 'react';
+import { FlatList, View, Text, Image, Dimensions, TouchableOpacity } from 'react-native';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { MaterialIcons } from '@expo/vector-icons';
+import { mehroon, lightGrey, WhiteSmoke } from './Constant';
+import { toggleFavorite } from '../../Redux/actions';
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { product as initialProduct } from "./Data";
+const width = Dimensions.get('screen').width / 2 - 30;
+
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
 const Product = ({ data }) => {
   const nav = useNavigation();
   const dispatch = useDispatch();
@@ -24,6 +39,7 @@ const Product = ({ data }) => {
     dispatch(toggleFavorite(productId));
   };
 
+<<<<<<< HEAD
   const renderStarRating = (rating) => {
     const filledStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
@@ -52,6 +68,9 @@ const Product = ({ data }) => {
       </View>
     );
   };
+=======
+
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
   return (
     <View style={{ marginTop: 20 }}>
       <FlatList
@@ -79,6 +98,7 @@ const Product = ({ data }) => {
               shadowColor: WhiteSmoke,
             }}
           >
+<<<<<<< HEAD
             <Image
               source={item.img}
               style={{
@@ -102,6 +122,12 @@ const Product = ({ data }) => {
             >
               <TouchableOpacity
                 onPress={(e) => {
+                  // e.stopPropagation();
+                  // handleFavoritePress(item._id);
+=======
+            <View style={{ alignItems: "flex-end" }}>
+              <TouchableOpacity
+                onPress={(e) => {
                   e.stopPropagation(); // Prevent triggering the parent TouchableOpacity onPress
                   handleFavoritePress(item._id);
                 }}
@@ -115,6 +141,34 @@ const Product = ({ data }) => {
                 <MaterialIcons
                   name={
                     favorites.includes(item._id)
+                      ? "favorite"
+                      : "favorite-border"
+                  }
+                  size={24}
+                  color={mehroon}
+                />
+              </TouchableOpacity>
+
+              <Image
+                source={item.img}
+                style={{
+                  height: 200,
+                  width: 172,
+                  borderRadius: 10,
+                  resizeMode: "contain",
+                  marginLeft: 60,
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
+                }}
+                style={{
+                  position: "absolute",
+                  top: 10,
+                  right: 10,
+                  zIndex: 1,
+                }}
+              >
+                <MaterialIcons
+                  name={
+                    favorites && favorites.includes(item._id)
                       ? "favorite"
                       : "favorite-border"
                   }
@@ -142,8 +196,11 @@ const Product = ({ data }) => {
               }}
             >
               <Text style={{ fontSize: 12, marginLeft: 7 }}>${item.price}</Text>
+<<<<<<< HEAD
               {/* Render star rating */}
               {renderStarRating(item.rating)}
+=======
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
             </View>
           </TouchableOpacity>
         )}

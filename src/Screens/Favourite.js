@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import {
   View,
@@ -14,6 +15,14 @@ import { product as initialProduct } from "../Components/Data";
 import { StatusBar } from "expo-status-bar";
 import { grey, white } from "../Components/Constant";
 import { useNavigation } from "@react-navigation/native";
+=======
+// Favourite.js
+import React from 'react';
+import { View, Text } from 'react-native';
+import { useSelector } from 'react-redux';
+import Product from '../Components/Product';
+import { product as initialProduct } from '../Components/Data';
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
 
 const Favourite = () => {
   const favoriteProductIds = useSelector((state) => state.favorites);
@@ -21,6 +30,7 @@ const Favourite = () => {
   const favoriteProducts = initialProduct.filter((product) =>
     favoriteProductIds.includes(product._id)
   );
+<<<<<<< HEAD
   const nav = useNavigation();
   const handleGoBack = () => {
     nav.goBack();
@@ -61,6 +71,17 @@ const Favourite = () => {
 
       {favoriteProducts.length === 0 && <Text>No favorite products yet.</Text>}
     </SafeAreaView>
+=======
+
+  return (
+    <View>
+      {favoriteProducts.length > 0 ? (
+        <Product data={favoriteProducts} /> // Change this line
+      ) : (
+        <Text>No favorite products yet.</Text>
+      )}
+    </View>
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
   );
 };
 
@@ -68,7 +89,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: white,
-    marginTop: 20,
+    marginTop: 10,
     paddingHorizontal: 6,
   },
   header: {

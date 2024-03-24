@@ -44,6 +44,7 @@ export default function Profile() {
               <MaterialIcons name="arrow-forward-ios" size={24} color="black" />
             </TouchableOpacity>
           </View>
+          
           <View style={styles.menuLine}>
             <View style={styles.menuLine1}>
               <View style={styles.icon}>

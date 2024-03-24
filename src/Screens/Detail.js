@@ -16,9 +16,12 @@ import ColorPicker from "../Components/ColorPicker";
 import { addToCart } from "../../Redux/CartSlice";
 import StarRate from "../Components/StarRate";
 import FACamera from "./Camera";
+<<<<<<< HEAD
 
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "../../Redux/actions";
+=======
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
 
 const Detail = ({ route }) => {
   const productData = route.params.main;
@@ -62,7 +65,7 @@ const Detail = ({ route }) => {
             source={img}
             style={{
               width: 370,
-              height: 400,
+              height: 300,
               borderRadius: 24,
               alignItems: "center",
             }}
@@ -259,7 +262,11 @@ const Detail = ({ route }) => {
             <Feather
               name="camera"
               onPress={() => {
+<<<<<<< HEAD
                 nav.navigate("Camera");
+=======
+                 nav.navigate('Camera');
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
               }}
               size={36}
               color={mehroon}

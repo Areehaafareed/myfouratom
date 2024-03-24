@@ -78,7 +78,7 @@ const Address = () => {
         />
         <TextInput
           style={styles.input}
-          placeholder="Select Country"
+          placeholder="Enter Country"
           placeholderTextColor="#A9A9A9"
           keyboardType="default"
           value={info.country}
@@ -86,7 +86,7 @@ const Address = () => {
         />
         <TextInput
           style={styles.input}
-          placeholder="Select Province"
+          placeholder="Enter Province"
           placeholderTextColor="#A9A9A9"
           keyboardType="default"
           value={info.province}
@@ -94,7 +94,7 @@ const Address = () => {
         />
         <TextInput
           style={styles.input}
-          placeholder="Select City"
+          placeholder="Enter City"
           placeholderTextColor="#A9A9A9"
           keyboardType="default"
           value={info.city}

@@ -103,14 +103,14 @@ const EditProfile = () => {
 
           <SafeAreaView style={styles.password}>
             <TouchableOpacity
-              onPress={() => {
-                setTogglepassword(!togglepassword);
-              }}
+            // onPress={() => {
+            //   setTogglepassword(!togglepassword);
+            // }}
             >
               <Text style={styles.changePassword}>Change Password</Text>
             </TouchableOpacity>
           </SafeAreaView>
-          {togglepassword ? (
+          {/* {togglepassword ? (
             <SafeAreaView>
               <TextInput
                 style={styles.input}
@@ -125,7 +125,7 @@ const EditProfile = () => {
                 secureTextEntry // This hides the entered text for passwords
               />
             </SafeAreaView>
-          ) : null}
+          ) : null} */}
           <TouchableOpacity style={styles.btn}>
             <Text style={{ color: "white", fontSize: 16 }}>Update</Text>
           </TouchableOpacity>
@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
   },
   main: {
     marginBottom: 20,
+    backgroundColor: white,
   },
   btn: {
     backgroundColor: "#6d2c00",

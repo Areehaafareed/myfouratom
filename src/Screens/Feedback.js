@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { grey } from "../Components/Constant";
+import { grey, white } from "../Components/Constant";
 const Feedback = () => {
   const nav = useNavigation();
   const handleGoBack = () => {
@@ -131,6 +131,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
     padding: 8,
     marginTop: 10,
+  },
+  main: {
+    backgroundColor: white,
   },
 });
 export default Feedback;

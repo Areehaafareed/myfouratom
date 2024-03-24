@@ -19,7 +19,11 @@
     "deprecated-react-native-prop-types": "^2.3.0",
     "expo": "^49.0.21",
     "expo-av": "~13.4.1",
+<<<<<<< HEAD
     "expo-camera": "~13.4.4",
+=======
+    "expo-camera": "^13.6.0",
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
     "expo-checkbox": "~2.4.0",
     "expo-media-library": "~15.4.1",
     "expo-splash-screen": "~0.20.5",
@@ -47,7 +51,7 @@
     "react-native-virtualized-view": "^1.0.0",
     "react-native-web": "~0.19.6",
     "react-redux": "^9.0.4",
-    "redux": "^5.0.0"
+    "redux": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

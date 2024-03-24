@@ -3,6 +3,11 @@ import { Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // Correct import
 import { Camera } from "expo-camera";
 
+<<<<<<< HEAD
+=======
+// cam file
+
+>>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
 export default function CamButton({ title, onPress, icon, color }) {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>

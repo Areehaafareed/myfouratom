@@ -1,0 +1,51 @@
+export const trending = [
+  {
+    _id: 1,
+    name: "Women Green Tracksuit",
+    price: 50.67,
+    rating: 4,
+    img: require("../../assets/trending1.png"),
+    isFavorite: false,
+  },
+  {
+    _id: 2,
+    name: "Pink Bottom",
+    price: 59.6,
+    rating: 4.5,
+    img: require("../../assets/pinkbottom.png"),
+    isFavorite: false,
+  },
+  {
+    _id: 3,
+    name: "Pink Top",
+    price: 69.77,
+    rating: 5,
+    img: require("../../assets/pinktop.png"),
+    isFavorite: false,
+  },
+
+  {
+    _id: 4,
+    name: "Basketball Jersey",
+    price: 70.0,
+    rating: 2.5,
+    img: require("../../assets/jersey.png"),
+    isFavorite: false,
+  },
+  {
+    _id: 5,
+    name: "Trendy Men's Tee",
+    price: 45.89,
+    rating: 3.5,
+    img: require("../../assets/men5.png"),
+    isFavorite: false,
+  },
+  {
+    _id: 6,
+    name: "Women Jacket",
+    price: 67.99,
+    rating: 3.5,
+    img: require("../../assets/women4.png"),
+    isFavorite: false,
+  },
+];
