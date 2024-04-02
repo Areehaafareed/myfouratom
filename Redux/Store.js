@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { configureStore } from "@reduxjs/toolkit";
 import { createStore } from "redux";
 import { rootReducer } from "./reducers";
@@ -36,18 +35,3 @@ export const Store = configureStore({
 
 // // Now, use mergedStore as your store in other files
 // export const Store = legacyStore;
-=======
-// store.js
-import { createStore } from 'redux';
-import { rootReducer } from './reducers';
-
-export const Store = createStore(rootReducer);import { configureStore } from "@reduxjs/toolkit";
-
-// import CartSlice from "./CartSlice";
-
-// export const Store = configureStore({
-//   reducer: {
-//     CartSlice,
-//   },
-// });
->>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1

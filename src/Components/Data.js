@@ -55,7 +55,6 @@ export const product = [
     rating: 4,
     img: require("../../assets/green-shirt.jpeg"),
     isFavorite: false,
-<<<<<<< HEAD
   },
   {
     _id: 8,
@@ -80,7 +79,5 @@ export const product = [
     rating: 4,
     img: require("../../assets/shirt1.png"),
     isFavorite: false,
-=======
->>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
   },
 ];

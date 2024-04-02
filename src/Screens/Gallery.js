@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import {
   View,
@@ -34,18 +33,6 @@ const Gallery = () => {
           </TouchableOpacity>
         </View>
       </View>
-=======
-import React from 'react';
-import { View, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
-import { useGallery } from '../Components/GalleryContext';
-import { GalleryProvider } from '../Components/GalleryContext';
-
-const Gallery = () => {
-  const { capturedImages } = useGallery(); // Use the GalleryContext hook
-
-  return (
-    <View style={styles.container}>
->>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
       <FlatList
         data={capturedImages}
         keyExtractor={(item) => item}
@@ -63,12 +50,8 @@ const Gallery = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-<<<<<<< HEAD
     // marginTop: 10,
     backgroundColor: white,
-=======
-    marginTop: 10,
->>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
   },
   imageContainer: {
     flex: 1,
@@ -79,7 +62,6 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     borderRadius: 5,
   },
-<<<<<<< HEAD
   header: {
     display: "flex",
     flexDirection: "row",
@@ -102,8 +84,3 @@ const styles = StyleSheet.create({
 });
 
 export default Gallery;
-=======
-});
-
-export default Gallery;
->>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1

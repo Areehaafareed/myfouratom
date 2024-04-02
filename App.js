@@ -1,5 +1,3 @@
-// In App.js in a new project
-
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -9,7 +7,7 @@ import Detail from "./src/Screens/Detail";
 import Home from "./src/Screens/Home";
 import MyCart from "./src/Screens/MyCart";
 import { Provider } from "react-redux";
-import { Store } from "./Redux/store";
+import { Store } from "./Redux/Store";
 import OrderPlaced from "./src/Screens/OrderPlaced";
 import ProgressBar from "./src/Screens/ProgressBar";
 import Otp from "./src/Screens/Otp";
@@ -26,20 +24,14 @@ import EditProfile from "./src/Screens/EditProfile";
 import MyOrders from "./src/Screens/MyOrders";
 import Feedback from "./src/Screens/Feedback";
 import Notifications from "./src/Screens/Notifications";
-<<<<<<< HEAD
 import ForgotPassword from "./src/Screens/ForgotPassword";
 import ChangePassword from "./src/Screens/ChangePassword";
 import SearchResult from "./src/Screens/SearchResult";
 import FACamera from "./src/Screens/Camera";
 import Gallery from "./src/Screens/Gallery";
 import { GalleryProvider } from "./src/Components/GalleryContext";
-=======
-import FACamera from "./src/Screens/Camera";
-import Gallery from "./src/Screens/Gallery";
-import { GalleryProvider } from "./src/Components/GalleryContext";
-// import { Storeimage } from "./Redux/storeimage";
->>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
 
+// import { Storeimage } from "./Redux/storeimage";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -127,37 +119,20 @@ function App() {
 
   return (
     <GalleryProvider>
-<<<<<<< HEAD
       <Provider store={Store}>
-=======
-      <Provider store={Store} >
->>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
         <NavigationContainer>
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen
               name="Splash"
               component={Splash}
-<<<<<<< HEAD
               // options={{
               //   headerShown: false,
               // }}
-=======
-              options={{
-                headerShown: false,
-              }}
->>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
             />
-            <Stack.Screen
-              name="Bottom"
-              component={Bottom}
-              options={{
-                headerShown: false,
-              }}
-            />
+            <Stack.Screen name="Bottom" />
             <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Detail" component={Detail} />
-<<<<<<< HEAD
             <Stack.Screen name="MyCart" component={MyCart} />
             <Stack.Screen name="Address" component={Address} />
             <Stack.Screen name="Checkout" component={Checkout} />
@@ -175,22 +150,7 @@ function App() {
             <Stack.Screen name="Otp" component={Otp} />
             <Stack.Screen name="Camera" component={FACamera} />
             <Stack.Screen name="Gallery" component={Gallery} />
-=======
             <Stack.Screen name="Camera" component={FACamera} />
-            <Stack.Screen name="MyCart" component={MyCart} />
-            <Stack.Screen name="Address" component={Address} />
-            <Stack.Screen name="Checkout" component={Checkout} />
-            {/* <Stack.Screen name="EditProfile" component={EditProfile} /> */}
-            <Stack.Screen name="MyOrders" component={MyOrders} />
-            <Stack.Screen name="Gallery" component={Gallery} />
-            <Stack.Screen name="Payment" component={Payment} />
-            <Stack.Screen name="Feedback" component={Feedback} />
-            <Stack.Screen name="Notifications" component={Notifications} />
-            <Stack.Screen name="ProgressBar" component={ProgressBar} />
-            <Stack.Screen name="OrderPlaced" component={OrderPlaced} />
-            <Stack.Screen name="Otp" component={Otp} />
-            <Stack.Screen name="Favourite" component={Favourite} />
->>>>>>> f516531e1e31bc7f42f1c894e5c1144a9b1bebc1
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
